@@ -1,0 +1,13 @@
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+google-genai
+langchain-google-genai
+langchain-huggingface
+huggingface-hub
+sentence-transformers
+python-dotenv
+django
+pymupdf
+openai

@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+agent/migrations/
+agent/templates/
+chat_histories/
+shopify/
+Suggestions/
+venv/
+Health Checks/
+audiences_memory.json
+bot_report.json
+bots_memory.json
+data.csv
+datahouse_memory.json
+devices_memory.json
+diagnosis_agent_memory.json
+knowledge_base_memory.json
+manager_memory.json
+memory_agent_f4f.json
+reportings_memory.json
+scrape_task_report.json
+scrape_tasks_memory.json
+search_console_a.db
+search_console_main.db
+search_console_test.db
+seo_agent_memory.json
+servers_memory.json
+shopify_store_manager_memory.json
+sql_query_agent_memory.json
+suggestions_agent_memory.json
+
+# Django stuff
+db.sqlite3 
+*.log
+
+# VSCode or IDE
+.vscode/
+.idea/
+
+# Static and media files
+/staticfiles/
+media/
+
+# Environment variables
+.env
+.env.local
+.env.production
