@@ -209,8 +209,8 @@ class AgentPersona:
     def initialize_llm_and_rag(self):
         """Initializes the LLM and RAG system (vectorstore and embeddings)."""
 
-        if "GOOGLE_API_KEY" not in os.environ:
-            os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY", GEMINI_API_KEY)
+        if "GEMINI_API_KEY" not in os.environ:
+            os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY", GEMINI_API_KEY)
 
         from langchain_google_genai import ChatGoogleGenerativeAI
 

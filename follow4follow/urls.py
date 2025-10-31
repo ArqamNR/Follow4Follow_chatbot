@@ -21,5 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('agent.urls')), # 👈 Routes base URL to agent app
-    path('shopify/', include('shopify.urls')),  # 👈 Routes base URL to shopify app
+    # path('shopify/', include('shopify.urls')),  # 👈 Routes base URL to shopify app
 ]

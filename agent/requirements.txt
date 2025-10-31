@@ -11,3 +11,4 @@ python-dotenv
 django
 pymupdf==1.26.4
 openai
+pandas
