@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from agent.f4f_chatbot_v2 import AgentPersona
+from agent.f4f_chatbot_v2 import Chatbot
 from agent.knowlege_base_chatbot import KnowlegdeBase
 import json
 from django.views.decorators.csrf import csrf_exempt
@@ -11,10 +11,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 # --- Main execution loop ---
 # This part remains similar to the original snippet, but uses the new Orchestrator class
-persona = AgentPersona()
+chatbot = Chatbot()
 # kb = KnowlegdeBase()
 # kb_creation_success = kb.initialize()
-agent_creation_success = persona.initialize()
+agent_creation_success = chatbot.initialize()
 def home(request):
     return render(request, 'index.html')
 def new_home(request):
@@ -24,14 +24,14 @@ def new_home(request):
 def get_user_input(request):
     if request.method == "POST":
         try:
-            mem = persona.shared_memory
-            botmem = persona.shared_memory_bot
+            mem = chatbot.shared_memory
+            botmem = chatbot.shared_memory_bot
 
             data = json.loads(request.body.decode("utf-8"))
             user_input = data.get("message", "")
 
             if agent_creation_success:
-                bot_response = persona.chat_with_agent(user_input)
+                bot_response = chatbot.chat_with_agent(user_input)
             else:
                 bot_response = "Agent not ready."
 
@@ -53,9 +53,9 @@ def get_user_input(request):
             # Save chat history to file
             with open(history_file_path, "w", encoding="utf-8") as f:
                 json.dump(chat_history, f, ensure_ascii=False, indent=4)
-            total_tokens_used = persona.manager_tokens
-            input_tokens = persona.manager_input_tokens
-            output_tokens = persona.manager_output_tokens
+            total_tokens_used = chatbot.manager_tokens
+            input_tokens = chatbot.manager_input_tokens
+            output_tokens = chatbot.manager_output_tokens
             return JsonResponse({"response": bot_response, 
                                  "tokens": total_tokens_used,
                                  "input_tokens":input_tokens,

@@ -77,7 +77,7 @@ def serialize_task_body(msg):
 
 import os
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
-class AgentPersona:
+class Chatbot:
     def __init__(self):
         self.ngrok = 'http://208.109.247.201:8080/'
         self.rag_tool = None
@@ -209,8 +209,8 @@ class AgentPersona:
     def initialize_llm_and_rag(self):
         """Initializes the LLM and RAG system (vectorstore and embeddings)."""
 
-        if "GEMINI_API_KEY" not in os.environ:
-            os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY", GEMINI_API_KEY)
+        if "GOOGLE_API_KEY" not in os.environ:
+            os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY", GEMINI_API_KEY)
 
         from langchain_google_genai import ChatGoogleGenerativeAI
 
